@@ -76,6 +76,16 @@ public class movements : MonoBehaviour
             }
         }
 
+<<<<<<< HEAD
+        //Jump
+        if (Input.GetKey(KeyCode.Space))
+        {
+            VMove = VMove + transform.up*0.05f;
+        }
+
+
+=======
+>>>>>>> 0dd72460d7750652432ad27fd6e649bbeed7582d
         CCPerso.Move(VMove*speed*Time.deltaTime);
     }
 
