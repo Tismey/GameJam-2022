@@ -7,6 +7,7 @@ public class movements : MonoBehaviour
     public CharacterController CCPerso;
     public Vector3 VMove;
     public float speed;
+    public float sprint;
     public const float cspeed = 10;
     public LayerMask ground;
     public Transform sol;
@@ -53,15 +54,25 @@ public class movements : MonoBehaviour
         {
             VMove = VMove + transform.right;
         }
+
+
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed += 2;
+            if (speed < sprint)
+            {
+                speed += sprint * 0.01f;
+            }
         }
         else
         {
-            speed = cspeed;
+            if (speed > cspeed)
+            {
+                speed -= sprint * 0.5f;
+            }
         }
 
+<<<<<<< HEAD
         //Jump
         if (Input.GetKey(KeyCode.Space))
         {
@@ -69,6 +80,8 @@ public class movements : MonoBehaviour
         }
 
 
+=======
+>>>>>>> 0dd72460d7750652432ad27fd6e649bbeed7582d
         CCPerso.Move(VMove*speed*Time.deltaTime);
     }
 
