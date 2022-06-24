@@ -483,7 +483,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CCPerso: {fileID: 1362282357}
   VMove: {x: 0, y: 0, z: 0}
-  speed: 40
+  speed: 20
+  sprint: 80
+  cspeed: 20
   ground:
     serializedVersion: 2
     m_Bits: 512
