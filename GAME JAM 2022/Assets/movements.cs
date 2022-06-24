@@ -79,11 +79,15 @@ public class movements : MonoBehaviour
             }
         }
         //Jump
-        if (Input.GetKey(KeyCode.Space))
+        if (Physics.CheckSphere(sol.position, 0.2f, ground))
         {
-            VMove = VMove + transform.up * 0.05f;
+            if (Input.GetKey(KeyCode.Space))
+            {
+                VMove = VMove + transform.up * 0.05f;
+            }
         }
 
+<<<<<<< Updated upstream
 
 
         //Jump
@@ -106,6 +110,8 @@ public class movements : MonoBehaviour
         //fin
 
 
+=======
+>>>>>>> Stashed changes
         CCPerso.Move(VMove*speed*Time.deltaTime);
     }
 
