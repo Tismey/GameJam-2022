@@ -68,7 +68,7 @@ public class movements : MonoBehaviour
         {
             if (speed > cspeed)
             {
-                speed -= (sprint * 0.1f);
+                speed -= (sprint * 0.015f);
             }
             else
             {
