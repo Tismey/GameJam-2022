@@ -8,7 +8,7 @@ public class movements : MonoBehaviour
     public Vector3 VMove;
     public float speed;
     public float sprint;
-    public const float cspeed = 10;
+    public float cspeed;
     public LayerMask ground;
     public Transform sol;
     public float fall = 0;
@@ -61,14 +61,18 @@ public class movements : MonoBehaviour
         {
             if (speed < sprint)
             {
-                speed += sprint * 0.01f;
+                speed += (sprint * 0.01f);
             }
         }
         else
         {
             if (speed > cspeed)
             {
-                speed -= sprint * 0.5f;
+                speed -= (sprint * 0.1f);
+            }
+            else
+            {
+                speed = cspeed;
             }
         }
 
