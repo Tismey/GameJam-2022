@@ -7,6 +7,10 @@ public class movements : MonoBehaviour
     public CharacterController CCPerso;
     public Vector3 VMove;
     public float speed;
+    public const float cspeed = 10;
+    public LayerMask ground;
+    public Transform sol;
+    public float fall = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +20,23 @@ public class movements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        VMove = Vector3.zero;
+
+        //gravite
+
+        
+        if (Physics.CheckSphere(sol.position, 0.2f, ground))
+        {
+            fall = 0;
+        }
+        else
+        {
+            fall = (-2.5f* Time.deltaTime + VMove.y);
+            
+        }
+        VMove = new Vector3(0,fall,0);
+        //fin
+
+
         if (Input.GetKey(KeyCode.W))
         {
             VMove = VMove + transform.forward;
@@ -35,7 +55,11 @@ public class movements : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            VMove += VMove;
+            speed += 2;
+        }
+        else
+        {
+            speed = cspeed;
         }
 
 
