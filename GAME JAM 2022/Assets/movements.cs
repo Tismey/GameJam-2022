@@ -39,19 +39,19 @@ public class movements : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.W))
             {
-                VMove =  transform.forward;
+                VMove +=  transform.forward;
             }
             if (Input.GetKey(KeyCode.A))
             {
-                VMove =  - transform.right;
+                VMove +=  - transform.right;
             }
             if (Input.GetKey(KeyCode.S))
             {
-                VMove = - transform.forward;
+                VMove += - transform.forward;
             }
             if (Input.GetKey(KeyCode.D))
             {
-                VMove = transform.right;
+                VMove += transform.right;
             }
         }
         else
