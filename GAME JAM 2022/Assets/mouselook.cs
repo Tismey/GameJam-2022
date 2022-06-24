@@ -11,6 +11,8 @@ public class mouselook : MonoBehaviour
     float shakeangle = 2f;
     public float speedmultiplier = 2f;
     float speedshake = 5f;
+    public LayerMask ground;
+    public Transform sol;
     public GameObject chr;
     public float speedset = 1000f;
     public movements chsp;
@@ -32,7 +34,7 @@ public class mouselook : MonoBehaviour
 
 
         float x = Input.GetAxis("Horizontal");
-        if (Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        if ((Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))&&(Physics.CheckSphere(sol.position, 0.2f, ground)))
         {
 
             camerashake = camerashake + speedshake * Time.deltaTime;

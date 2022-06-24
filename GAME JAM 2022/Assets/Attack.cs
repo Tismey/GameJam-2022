@@ -5,18 +5,18 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public float nbHits = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float n = 0;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerStay(Collider other)
     {
-        if (Input.GetMouseButton(1))
+        if (other.gameObject.tag == "enemy")
         {
-            ++nbHits;
+            ++n;
+            if (Input.GetMouseButtonDown(0))
+            {
+                Destroy(other.gameObject);
+                ++nbHits;
+            }
         }
     }
 }
