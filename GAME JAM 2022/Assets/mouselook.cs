@@ -32,7 +32,7 @@ public class mouselook : MonoBehaviour
 
 
         float x = Input.GetAxis("Horizontal");
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
 
             camerashake = camerashake + speedshake * Time.deltaTime;

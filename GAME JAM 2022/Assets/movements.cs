@@ -33,7 +33,7 @@ public class movements : MonoBehaviour
             fall = 0;
             //Jump
             VMove = new Vector3(0, fall, 0);
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 fall = jumpForce;
             }
@@ -92,7 +92,7 @@ public class movements : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftControl))
         {
             transform.localScale = new Vector3(1, acroupie, 1);
-            speed = 5;
+            speed = 3;
         }
         else
         {

@@ -369,9 +369,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mousesensitivity: 100
   Playerbody: {fileID: 1362282355}
-  speedmultiplier: 100
+  speedmultiplier: 20
   chr: {fileID: 1362282351}
-  speedset: 200
+  speedset: 20
   chsp: {fileID: 1362282356}
 --- !u!1 &1362282351
 GameObject:
@@ -484,8 +484,8 @@ MonoBehaviour:
   CCPerso: {fileID: 1362282357}
   VMove: {x: 0, y: 0, z: 0}
   speed: 20
-  sprint: 30
-  cspeed: 10
+  sprint: 10
+  cspeed: 6
   ground:
     serializedVersion: 2
     m_Bits: 512
