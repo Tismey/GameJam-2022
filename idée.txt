@@ -1,6 +1,9 @@
 sante mental change la perception
 fumer des bedo pour la santer mental
 descente en enfer pour dix balles
+Le personnage doit continuellement soufrir pour ne pqs prendre de dégats
+sinon il déclenche une attack des foreces des enfers
+le joueur doit donc gerer sa barre de vie(perdre de la vie pour faire grimper le pain meter) 
 
 
 -demon
