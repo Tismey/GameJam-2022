@@ -18,7 +18,7 @@ public class AIlogic : MonoBehaviour
     bool isAlert = false;
     Vector3[] posOfIntresse;
     public aiview view;
-    public GameObject pl;
+    GameObject pl;
 
     public float CAttackCooldown;
     float AttackCoolDown;
