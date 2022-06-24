@@ -483,11 +483,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CCPerso: {fileID: 1362282357}
   VMove: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-  speed: 40
-=======
+
   speed: 20
->>>>>>> 48b274a88fc2b8839ebc263b12c09d098f4fb9f6
+
   sprint: 80
   cspeed: 20
   ground:
