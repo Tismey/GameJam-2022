@@ -33,6 +33,12 @@ public class movements : MonoBehaviour
         {
             VMove = VMove + transform.right;
         }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            VMove += VMove;
+        }
+
+
         CCPerso.Move(VMove*speed*Time.deltaTime);
     }
 
