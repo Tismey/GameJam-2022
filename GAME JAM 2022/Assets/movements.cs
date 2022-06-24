@@ -12,6 +12,8 @@ public class movements : MonoBehaviour
     public LayerMask ground;
     public Transform sol;
     public float fall = 0;
+    const float debout = 1;
+    const float acroupie = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,7 @@ public class movements : MonoBehaviour
         VMove = new Vector3(0,fall,0);
         //fin
 
+       
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -76,16 +79,25 @@ public class movements : MonoBehaviour
             }
         }
 
-<<<<<<< HEAD
+
         //Jump
         if (Input.GetKey(KeyCode.Space))
         {
             VMove = VMove + transform.up*0.05f;
         }
+        //Counch
 
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            transform.localScale = new Vector3(1, acroupie, 1);
+            speed = 5;
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, debout, 1);
+        }
+        //fin
 
-=======
->>>>>>> 0dd72460d7750652432ad27fd6e649bbeed7582d
         CCPerso.Move(VMove*speed*Time.deltaTime);
     }
 

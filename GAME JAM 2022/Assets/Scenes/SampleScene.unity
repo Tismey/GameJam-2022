@@ -371,7 +371,7 @@ MonoBehaviour:
   Playerbody: {fileID: 1362282355}
   speedmultiplier: 100
   chr: {fileID: 1362282351}
-  speedset: 1000
+  speedset: 200
   chsp: {fileID: 1362282356}
 --- !u!1 &1362282351
 GameObject:
@@ -483,11 +483,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CCPerso: {fileID: 1362282357}
   VMove: {x: 0, y: 0, z: 0}
-
   speed: 20
-
-  sprint: 80
-  cspeed: 20
+  sprint: 30
+  cspeed: 10
   ground:
     serializedVersion: 2
     m_Bits: 512
@@ -535,7 +533,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434261775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.027, z: 0}
+  m_LocalPosition: {x: 0, y: -1.047, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1362282355}

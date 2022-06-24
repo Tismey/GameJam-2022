@@ -12,7 +12,7 @@ public class mouselook : MonoBehaviour
     public float speedmultiplier = 2f;
     float speedshake = 5f;
     public GameObject chr;
-    public float speedset = 3f;
+    public float speedset = 1000f;
     public movements chsp;
     // Use this for initialization
     void Start()
