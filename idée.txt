@@ -10,4 +10,4 @@ le joueur doit donc gerer sa barre de vie(perdre de la vie pour faire grimper le
 -demon
 -perso principale
 -3D ou 2D
--
+-timothée c'est un fdp
