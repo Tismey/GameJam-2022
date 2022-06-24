@@ -11,6 +11,7 @@ public class movements : MonoBehaviour
     public float cspeed;
     public LayerMask ground;
     public Transform sol;
+    public float jumpForce;
     public float fall = 0;
     const float debout = 1;
     const float acroupie = 0.5f;
@@ -30,6 +31,12 @@ public class movements : MonoBehaviour
         if (Physics.CheckSphere(sol.position, 0.2f, ground))
         {
             fall = 0;
+            //Jump
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                fall = jumpForce;
+            }
+            
         }
         else
         {
@@ -78,24 +85,7 @@ public class movements : MonoBehaviour
                 speed = cspeed;
             }
         }
-        //Jump
-        if (Physics.CheckSphere(sol.position, 0.2f, ground))
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                VMove = VMove + transform.up * 0.05f;
-            }
-        }
-
-<<<<<<< Updated upstream
-
-
-        //Jump
-        if (Input.GetKey(KeyCode.Space))
-        {
-            VMove = VMove + transform.up*0.05f;
-        }
-
+        
         //Counch
 
         if (Input.GetKey(KeyCode.LeftControl))
@@ -109,9 +99,6 @@ public class movements : MonoBehaviour
         }
         //fin
 
-
-=======
->>>>>>> Stashed changes
         CCPerso.Move(VMove*speed*Time.deltaTime);
     }
 

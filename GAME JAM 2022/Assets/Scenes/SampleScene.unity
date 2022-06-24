@@ -490,6 +490,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   sol: {fileID: 1434261776}
+  jumpForce: 1
   fall: 0
 --- !u!143 &1362282357
 CharacterController:
