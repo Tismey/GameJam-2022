@@ -85,6 +85,7 @@ public class movements : MonoBehaviour
         {
             VMove = VMove + transform.up*0.05f;
         }
+
         //Counch
 
         if (Input.GetKey(KeyCode.LeftControl))
@@ -97,6 +98,7 @@ public class movements : MonoBehaviour
             transform.localScale = new Vector3(1, debout, 1);
         }
         //fin
+
 
         CCPerso.Move(VMove*speed*Time.deltaTime);
     }
