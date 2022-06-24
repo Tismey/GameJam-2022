@@ -18,7 +18,7 @@ public class movements : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        VMove = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -32,38 +32,39 @@ public class movements : MonoBehaviour
         {
             fall = 0;
             //Jump
+            VMove = new Vector3(0, fall, 0);
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 fall = jumpForce;
             }
-            
+            if (Input.GetKey(KeyCode.W))
+            {
+                VMove =  transform.forward;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                VMove =  - transform.right;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                VMove = - transform.forward;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                VMove = transform.right;
+            }
         }
         else
         {
             fall = (-2.5f* Time.deltaTime + VMove.y);
             
         }
-        VMove = new Vector3(0,fall,0);
+        VMove = new Vector3(VMove.x,fall,VMove.z);
         //fin
 
        
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            VMove = VMove + transform.forward;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            VMove = VMove - transform.right;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            VMove = VMove - transform.forward;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            VMove = VMove + transform.right;
-        }
+        
 
 
 
