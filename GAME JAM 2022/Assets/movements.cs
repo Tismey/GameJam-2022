@@ -78,6 +78,16 @@ public class movements : MonoBehaviour
                 speed = cspeed;
             }
         }
+        //Jump
+        if (Physics.CheckSphere(sol.position, 0.2f, ground))
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                VMove = VMove + transform.up * 0.05f;
+            }
+        }
+
+<<<<<<< Updated upstream
 
 
         //Jump
@@ -100,6 +110,8 @@ public class movements : MonoBehaviour
         //fin
 
 
+=======
+>>>>>>> Stashed changes
         CCPerso.Move(VMove*speed*Time.deltaTime);
     }
 
