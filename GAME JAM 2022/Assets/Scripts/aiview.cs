@@ -27,7 +27,7 @@ public class aiview : MonoBehaviour
     public LayerMask teamcolor;
 
     Collider[] colliders = new Collider[50];
-    public GameObject pl;
+    GameObject pl;
     public bool insight = false;
 
     
@@ -35,7 +35,7 @@ public class aiview : MonoBehaviour
     void Start()
     {
         scaninterval = 1.0f / scanfreq;
-       
+        pl = GameObject.FindGameObjectWithTag("Player");
     }
     
 
@@ -55,18 +55,18 @@ public class aiview : MonoBehaviour
 
     private void Scan()
     {
-        if(Physics.CheckSphere(transform.position, distance, layers, QueryTriggerInteraction.Collide)){
+      
             
             if (Insight(pl))
             {
                 insight = true;
-                
+                Debug.Log("VU");
             }
             else
             {
                 insight = false;
             }
-        }
+        
     }
     public bool Insight(GameObject obj)
     {
@@ -75,15 +75,6 @@ public class aiview : MonoBehaviour
         Vector3 direction = dist - origin;
 
 
-
-        if (obj.layer == gameObject.layer)
-        {
-            return false;
-        }
-        if (obj.layer != 10)
-        {
-            return false;
-        }
 
 
         if (direction.y < -height || direction.y > height)

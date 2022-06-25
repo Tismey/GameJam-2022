@@ -12,22 +12,22 @@ public class AIlogic : MonoBehaviour
     public float CreactionTime = 3;
     Vector3 Point;
     public bool isranged;
-    GameObject projectile;
+    public GameObject projectile;
     bool ispatrolling = true;
     public bool stop = true;
     bool isAlert = false;
-    Vector3[] posOfIntresse;
+    public Transform[] posOfIntresse;
     public aiview view;
     GameObject pl;
     public int health = 100;
 
     public float CAttackCooldown;
-    float AttackCoolDown;
+    public float AttackCoolDown;
     // Start is called before the first frame update
     void Start()
     {
         Point = transform.position;
-        pl = GameObject.FindGameObjectWithTag("player");
+        pl = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -41,14 +41,15 @@ public class AIlogic : MonoBehaviour
         {
             AttackCoolDown -= Time.deltaTime;
         }
-
+        Think();
 
         if (ispatrolling)
         {
             speed = 4;
             Patrol(posOfIntresse);
-            if(Random.Range(0,50) == 0 && stop == false)
+            if(Random.Range(0,1000) == 0 && stop == false)
             {
+                Debug.Log("Stop");
                 Stop();
             }
         }
@@ -71,7 +72,7 @@ public class AIlogic : MonoBehaviour
        
     }
 
-    void Patrol(Vector3[] fallBackPoints)
+    void Patrol(Transform[] fallBackPoints)
     {
         if(Vector3.Distance(Point, transform.position) < 10f)
         {
@@ -82,7 +83,8 @@ public class AIlogic : MonoBehaviour
             }
             else
             {
-                Point = fallBackPoints[Random.Range(0, fallBackPoints.Length)];
+                Debug.Log("unvalid point going to default");
+                Point = fallBackPoints[Random.Range(0, fallBackPoints.Length)].position;
             }
         }
     }
@@ -107,9 +109,9 @@ public class AIlogic : MonoBehaviour
     {
         if (isranged)
         {
+            Stop();
             Instantiate(projectile, transform.position, Quaternion.identity);
-        }
-        else
+        }     
     }
     private bool SetDestination(Vector3 targetDestination)
     {
@@ -125,9 +127,11 @@ public class AIlogic : MonoBehaviour
 
     void Think()
     {
-        if(view.insight == true)
+        if(view.insight == true && !isAlert)
         {
             reactionTime -= Time.deltaTime;
+            Stop();
+            Debug.Log("!!! " + reactionTime);
         }
         else
         {
@@ -138,17 +142,19 @@ public class AIlogic : MonoBehaviour
         {
             isAlert = true;
             ispatrolling = false;
+            Debug.Log("Spotted");
         }
     }
 
     void Stop()
     {
         stop = true;
-        StartCoroutine("cooldown", Random.Range(2, 10));
+        StartCoroutine("cooldown", Random.Range(5, 10));
     }
     IEnumerator cooldown(float time)
     {
         yield return new WaitForSeconds(time);
+        Debug.Log("MOVE");
         stop = false;
     }
 }

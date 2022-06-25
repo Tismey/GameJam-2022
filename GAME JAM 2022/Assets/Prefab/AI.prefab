@@ -72,13 +72,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ag: {fileID: 6138656057496307120}
   speed: 0
-  AttackDistance: 0
-  reactionTime: 0
+  AttackDistance: 5
+  reactionTime: 5
   CreactionTime: 3
-  isranged: 0
-  stop: 1
+  isranged: 1
+  projectile: {fileID: 6825073970917657101, guid: d9d58269e1383984786adb9d1bf4f765,
+    type: 3}
+  stop: 0
+  posOfIntresse:
+  - {x: 0, y: 0, z: 0}
   view: {fileID: 6138656057841751386}
-  CAttackCooldown: 0
+  health: 100
+  CAttackCooldown: 5
+  AttackCoolDown: 0
 --- !u!114 &6138656057841751386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f9a5ca15a94e44597e5a44bd285159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 10
-  angle: 30
+  distance: 50
+  angle: 40
   height: 1
   colormesh: {r: 1, g: 0, b: 0, a: 1}
   effectivesppoting: 0
@@ -104,11 +110,10 @@ MonoBehaviour:
     m_Bits: 0
   occlusionlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   teamcolor:
     serializedVersion: 2
     m_Bits: 0
-  pl: {fileID: 0}
   insight: 0
 --- !u!136 &6138656057841751385
 CapsuleCollider:

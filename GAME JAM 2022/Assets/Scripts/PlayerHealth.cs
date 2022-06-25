@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
         {
             hagraah();
         }
-        Debug.Log("Health = " + health.ToString());
+        //Debug.Log("Health = " + health.ToString());
     }
 
 
