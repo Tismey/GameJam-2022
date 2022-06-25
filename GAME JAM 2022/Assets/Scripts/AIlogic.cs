@@ -19,6 +19,7 @@ public class AIlogic : MonoBehaviour
     Vector3[] posOfIntresse;
     public aiview view;
     GameObject pl;
+    public int health = 100;
 
     public float CAttackCooldown;
     float AttackCoolDown;
@@ -32,6 +33,10 @@ public class AIlogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health < 0)
+        {
+            Destroy(gameObject);
+        }  
         if (AttackCoolDown > -10)
         {
             AttackCoolDown -= Time.deltaTime;
@@ -40,6 +45,7 @@ public class AIlogic : MonoBehaviour
 
         if (ispatrolling)
         {
+            speed = 4;
             Patrol(posOfIntresse);
             if(Random.Range(0,50) == 0 && stop == false)
             {
@@ -49,6 +55,7 @@ public class AIlogic : MonoBehaviour
 
         if (isAlert)
         {
+            speed = 8;
             Alert();
         }
         if (stop)
@@ -98,7 +105,11 @@ public class AIlogic : MonoBehaviour
 
     void Attack(Vector3 target)
     {
-
+        if (isranged)
+        {
+            Instantiate(projectile, transform.position, Quaternion.identity);
+        }
+        else
     }
     private bool SetDestination(Vector3 targetDestination)
     {
@@ -133,7 +144,7 @@ public class AIlogic : MonoBehaviour
     void Stop()
     {
         stop = true;
-        StartCoroutine("cooldown", Random.Range(5, 10));
+        StartCoroutine("cooldown", Random.Range(2, 10));
     }
     IEnumerator cooldown(float time)
     {
