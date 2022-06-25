@@ -26,7 +26,7 @@ public class AIlogic : MonoBehaviour
     void Start()
     {
         Point = transform.position;
-        pl = GameObject.Find("player");
+        pl = GameObject.FindGameObjectWithTag("player");
     }
 
     // Update is called once per frame
