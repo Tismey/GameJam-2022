@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations;
 
 public class AIlogic : MonoBehaviour
 {
@@ -23,16 +24,22 @@ public class AIlogic : MonoBehaviour
 
     public float CAttackCooldown;
     public float AttackCoolDown;
+    public Animator anim;
+    bool attackanim = false;
     // Start is called before the first frame update
     void Start()
     {
         Point = transform.position;
         pl = GameObject.FindGameObjectWithTag("Player");
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        anim.SetFloat("speed", ag.speed);
+        anim.SetBool("Attack", attackanim);
+        anim.SetBool("stop", stop);
         if (health < 0)
         {
             Destroy(gameObject);
@@ -69,7 +76,7 @@ public class AIlogic : MonoBehaviour
         }
 
 
-       
+        ag.speed = speed;
     }
 
     void Patrol(Transform[] fallBackPoints)
@@ -107,10 +114,12 @@ public class AIlogic : MonoBehaviour
 
     void Attack(Vector3 target)
     {
+        
         if (isranged)
         {
+            StartCoroutine("Attackanim");
             Stop();
-            Instantiate(projectile, transform.position, Quaternion.identity);
+            
         }     
     }
     private bool SetDestination(Vector3 targetDestination)
@@ -149,6 +158,7 @@ public class AIlogic : MonoBehaviour
     void Stop()
     {
         stop = true;
+        speed = 0;
         StartCoroutine("cooldown", Random.Range(5, 10));
     }
     IEnumerator cooldown(float time)
@@ -156,5 +166,12 @@ public class AIlogic : MonoBehaviour
         yield return new WaitForSeconds(time);
         Debug.Log("MOVE");
         stop = false;
+    }
+    IEnumerator Attackanim()
+    {
+        attackanim = true;
+        yield return new WaitForSeconds(1);
+        attackanim = false;
+        Instantiate(projectile, transform.position, Quaternion.identity);
     }
 }
