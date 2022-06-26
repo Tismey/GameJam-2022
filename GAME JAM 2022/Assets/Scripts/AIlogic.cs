@@ -26,11 +26,13 @@ public class AIlogic : MonoBehaviour
     public float AttackCoolDown;
     public Animator anim;
     bool attackanim = false;
+    public bool stationarie;
     // Start is called before the first frame update
     void Start()
     {
         Point = transform.position;
         pl = GameObject.FindGameObjectWithTag("Player");
+        stop = stationarie;
        
     }
 
@@ -40,6 +42,7 @@ public class AIlogic : MonoBehaviour
         anim.SetFloat("speed", ag.speed);
         anim.SetBool("Attack", attackanim);
         anim.SetBool("stop", stop);
+        anim.SetBool("stationarie", stationarie);
         if (health < 0)
         {
             Destroy(gameObject);
@@ -50,7 +53,7 @@ public class AIlogic : MonoBehaviour
         }
         Think();
 
-        if (ispatrolling)
+        if (ispatrolling && !stationarie)
         {
             speed = 4;
             Patrol(posOfIntresse);
@@ -66,7 +69,7 @@ public class AIlogic : MonoBehaviour
             speed = 8;
             Alert();
         }
-        if (stop)
+        if (stop || stationarie)
         {
             ag.SetDestination(transform.position);
         }
@@ -136,7 +139,7 @@ public class AIlogic : MonoBehaviour
 
     void Think()
     {
-        if(view.insight == true && !isAlert)
+        if(view.insight == true && !isAlert && !stationarie)
         {
             reactionTime -= Time.deltaTime;
             Stop();
